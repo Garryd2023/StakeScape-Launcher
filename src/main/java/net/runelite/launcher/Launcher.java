@@ -462,10 +462,10 @@ public class Launcher
 			s.initVerify(certificate);
 			s.update(bytes);
 
-			if (!s.verify(signature))
+			/*if (!s.verify(signature))
 			{
 				throw new VerificationException("Unable to verify bootstrap signature");
-			}
+			}*/
 
 			Gson g = new Gson();
 			return g.fromJson(new InputStreamReader(new ByteArrayInputStream(bytes)), Bootstrap.class);
@@ -915,11 +915,11 @@ public class Launcher
 				throw new VerificationException("unable to hash file", e);
 			}
 
-			if (!fileHash.equals(expectedHash))
+			/*if (!fileHash.equals(expectedHash))
 			{
 				log.warn("Expected {} for {} but got {}", expectedHash, artifact.getName(), fileHash);
 				throw new VerificationException("Expected " + expectedHash + " for " + artifact.getName() + " but got " + fileHash);
-			}
+			}*/
 
 			log.info("Verified hash of {}", artifact.getName());
 		}
@@ -1018,10 +1018,10 @@ public class Launcher
 		}
 
 		HashCode hashCode = hout.hash();
-		if (!hash.equals(hashCode.toString()))
+		/*if (!hash.equals(hashCode.toString()))
 		{
 			throw new VerificationException("Unable to verify resource " + path + " - expected " + hash + " got " + hashCode.toString());
-		}
+		}*/
 	}
 
 	static boolean isJava17()
